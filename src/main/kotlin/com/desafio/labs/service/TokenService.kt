@@ -11,9 +11,7 @@ import java.util.*
 
 @Service
 class TokenService {
-    private val key =
-        Keys.hmacShaKeyFor("7f-j&CKk=coNzZc0y7_4obMP?#TfcYq%fcD0mDpenW2nc!lfGoZ|d?f&RNbDHUX6"
-            .getBytes(StandardCharsets.UTF_8));
+    private val key = ""
 
     //30 minutos
     private val expirationTime: Long = 1800000

@@ -1,9 +1,10 @@
-FROM openjdk:8-jdk-alpine
-
-RUN mkdir /jwtsamplekt
-
-COPY build/libs/sgm-login-kt-0.0.1-SNAPSHOT.jar /sgm-login/app.jar
-
-WORKDIR /sgm-login
-
-CMD ["sh", "-c", "java -Dspring.profiles.active=$JAVA_ENV -Djava.security.egd=file:/dev/./urandom -Xms128m -Xmx512m -jar app.jar"]
+FROM adoptopenjdk/openjdk11
+FROM maven:alpine
+WORKDIR /app
+ADD pom.xml /app
+COPY . /app
+RUN mvn -v
+RUN mvn clean install -DskipTests
+EXPOSE 8080
+ADD target/desafio-luizalabs-0.0.1-SNAPSHOT.jar /developments/
+ENTRYPOINT ["java","-jar","/developments/desafio-luizalabs-0.0.1-SNAPSHOT.jar"]

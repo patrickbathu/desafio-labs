@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import javax.ws.rs.PUT
 
 @RestController
 class ClienteCadastroController(val clienteService: ClienteService, val clienteRepository : ClienteRepository) {

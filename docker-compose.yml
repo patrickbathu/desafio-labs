@@ -1,11 +1,13 @@
 version: "3"
 services:
 
-  eureka-server:
-    image: springcloud/eureka
-    hostname: eureka-server
+  desafio-labs:
+    build:
+      context: .
     ports:
-      - 8761:8761
+      - 8080:8080
+    depends_on:
+      - mongodb
 
   mongodb:
     image: mongo:latest
@@ -14,20 +16,4 @@ services:
     ports:
       - "27017:27017"
 
-  mysql:
-    image: mysql
-    restart: always
-    expose:
-      - "3306"
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-
-  sonarqube:
-    image: sonarqube
-    ports:
-      - 9000:9000
-    volumes:
-      - C:/sonarqube
 
