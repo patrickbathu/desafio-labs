@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: desafio-luizalabs
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: desafio-luizalabs
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+
+swagger:
+  version: 1.0
+  description : Desafio Tecnico LuizaLabs
